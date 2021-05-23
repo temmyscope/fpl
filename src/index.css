@@ -1,13 +1,208 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  width: 98vw;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 1%;
+}
+.useless-line {
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  border-radius: 2px;
+  margin-bottom: 6px;
+  margin-top: 6px;
+  margin-left: 1%;
+  margin-right: 1%;
+  width: 96%;
+}
+.topbase{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  font-size: 16px;
+  margin-left: 2%;
+  margin-right: 2%;
+  font-family: Circular Std;
+}
+.page-footer{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  font-size: 16px;
+  margin-left: 2%;
+  margin-right: 2%;
+  font-family: Circular Std;
+}
+@media screen and (min-width: 280px) {  
+  .card {
+    background-color: white;
+    width: 90%;
+    margin: 2px auto;
+    text-align: left;
+    height: 220px;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  .page-head {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+  .myInput {
+    background-image: url('./searchicon.png');
+    background-position: 98%;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+  }
+  .mySelects {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+  }
+}
+@media screen and (min-width: 600px) {  
+  .card {
+    background-color: white;
+    width: 47%;
+    margin: 2px auto;
+    text-align: left;
+    height: 220px;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  .page-head {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+  .myInput {
+    background-image: url('./searchicon.png');
+    background-position: 98%;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+  }
+  .mySelects {
+    width: 27%;
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+}
+@media screen and (min-width: 900px) {  
+  .card {
+    background-color: white;
+    width: 31%;
+    margin: 4px auto;
+    text-align: left;
+    height: 220px;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  .page-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+  .myInput {
+    background-image: url('./searchicon.png');
+    background-position: 98%;
+    background-repeat: no-repeat;
+    width: 42%;
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+    margin-right: 5%;
+  }
+  .mySelects {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+}
+.mySelects {
+  border-radius: 4px;
+}
+.myInput {
+  border-radius: 4px;
+}
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: #08BD37;
+  background-color: whitesmoke;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+}
+.card h2 {
+  text-align:left;
+  font-family: Circular Std;
+  font-style: normal;font-weight: 550;
+  font-size:24px;
+  margin:2% 2%;
+}
+.card-text {
+  margin:5% 2%;
+  font-family: Inter;
+  color: #3F3E3E;
+  font-size: 14px;
+}
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: 550;
+}
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  color: black;
 }
