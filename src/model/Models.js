@@ -47,7 +47,7 @@ const search = (arr, query) => {
     }
     let filtered = [];
     for (let i = 0; i < arr.length; i++) {
-      if( arr[i].category.indexOf(query) !== -1){
+      if( arr[i].name.indexOf(query) !== -1){
         filtered.push(arr[i]);
       }
     }

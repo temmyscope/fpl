@@ -5,8 +5,7 @@ import { TemplatesLoader } from './components/TemplatesLoader';
 const App = () => {
   const [states, setStates] = useState({
     templates: [], limit: 15, iterator: 0, length: 0,
-    category: 'all', order: 'default', date: 'default',
-    query: ''
+    category: 'all', order: 'default', date: 'default', query: ''
   });
 
   const prev = () => setStates({
@@ -54,7 +53,7 @@ const App = () => {
       <div className="page-head">
         <input 
           type="search" placeholder="search template" className="myInput"
-          onInput={searchTemplates}
+          onChange={searchTemplates}
         />
         <span>Sort by: </span>
         <div>
