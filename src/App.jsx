@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Api, capitalize, limitByCategory, search, sortByDate, sortByAlphabeth }  from './model/Models';
+import { Api, capitalize }  from './model/Models';
 import { TemplatesLoader } from './components/TemplatesLoader';
 
 const App = () => {
@@ -25,27 +25,16 @@ const App = () => {
     
   }, [states]);
 
-  const chooseCategory = (e) => {
-    setStates({...states, 
-      category:  e.target.value, order: 'default', date: 'default',
-      templates: limitByCategory(states.templates, e.target.value)
-    });
-  }
-  const chooseOrderSort = (e) => {
-    setStates({...states, 
-      order: e.target.value, templates: sortByAlphabeth(states.templates, e.target.value)
-    });
-  }
-  const chooseDateSort = (e) => {
-    setStates({...states, 
-      date: e.target.value, templates: sortByDate(states.templates, e.target.value)
-    });
-  }
-  const searchTemplates = (e) => {
-    setStates({...states, query: e.target.value,
-      templates: search(states.templates, e.target.value)
-    });
-  }
+  const chooseCategory = (e) => setStates({
+    ...states, category:  e.target.value, order: 'default', date: 'default', query: ''
+  });
+  
+  const chooseOrderSort = (e) => setStates({...states, order: e.target.value});
+  
+  const chooseDateSort = (e) => setStates({...states, date: e.target.value });
+  
+  const searchTemplates = (e) => setStates({...states, query: e.target.value });
+  
 
   return (
     <div className="App">
@@ -53,7 +42,7 @@ const App = () => {
       <div className="page-head">
         <input 
           type="search" placeholder="search template" className="myInput"
-          onChange={searchTemplates}
+          onChange={searchTemplates} value={states.query}
         />
         <span>Sort by: </span>
         <div>
