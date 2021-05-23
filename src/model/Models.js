@@ -1,5 +1,9 @@
-const Api = fetch('https://front-end-task-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates')
-  
+const Api = fetch('https://front-end-task-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates');
+
+const capitalize = (myStr) => 
+  myStr.toLowerCase().split(' ').map(
+    word => word.charAt(0).toUpperCase() + word.substring(1)).join(' ');
+
 const limitByCategory = (arr, cat) => {
     if(cat === 'all'){
       return arr;
@@ -50,4 +54,4 @@ const search = (arr, query) => {
     return filtered;
 }
 
-export { Api, limitByCategory, search, sortByDate, sortByAlphabeth }
+export { Api, capitalize, limitByCategory, search, sortByDate, sortByAlphabeth }

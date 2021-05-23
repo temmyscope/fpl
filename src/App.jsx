@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Api, limitByCategory, search, sortByDate, sortByAlphabeth }  from './model/Models';
+import { Api, capitalize, limitByCategory, search, sortByDate, sortByAlphabeth }  from './model/Models';
 import { TemplatesLoader } from './components/TemplatesLoader';
 
 const App = () => {
@@ -91,7 +91,7 @@ const App = () => {
       </div>
       
       <div className="topbase">
-        <h4>All templates</h4>
+        <h4>{capitalize(states.category)} templates</h4>
         <h4 style={{color: 'grey'}}>{states.templates.length} templates</h4>
       </div>
 
