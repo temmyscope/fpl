@@ -3,7 +3,7 @@ import { Card } from './Card';
 
 const TemplatesLoader = ({ states }) => {
 
-    if(states.length === 0){
+    if(states.length === 0 || states.templates.length === 0){
       return <span style={{width:'100%',textAlign:'center'}}>Loading</span>;
     }
     
@@ -11,19 +11,16 @@ const TemplatesLoader = ({ states }) => {
     const boundary = (states.iterator+1)*states.limit;
     const upperBoundary = (boundary > states.length) ? states.length : boundary;
     const start = states.iterator*states.limit;
+
     for(let i = start; i < upperBoundary; i++){
       templates.push(states.templates[i]);
     }
 
     return(
     <>
-    {templates.map((template, index) => (
-      <Card 
-        title={template.name}
-        desc={template.description}
-        key={index} 
-      />
-    ))}
+      {( templates.length === 0)? <></>:
+      templates.map((template, index) => (<Card title={template.name} desc={template.description} key={index} />))
+      }
     </>
     );
 }
