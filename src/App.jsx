@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Api  from './model/Api';
+import { Api, limitByCategory, search, sortByDate, sortByAlphabeth }  from './model/Models';
 import { TemplatesLoader } from './components/TemplatesLoader';
 
 const App = () => {
   const [states, setStates] = useState({
     templates: [], limit: 15, iterator: 0, length: 0,
-    category: 'all', order: 'def', date: 'def'
+    category: 'all', order: 'default', date: 'default',
+    query: ''
   });
 
   const prev = () => setStates({
@@ -25,14 +26,39 @@ const App = () => {
     
   }, [states]);
 
+  const chooseCategory = (e) => {
+    setStates({...states, 
+      category:  e.target.value, order: 'default', date: 'default',
+      templates: limitByCategory(states.templates, e.target.value)
+    });
+  }
+  const chooseOrderSort = (e) => {
+    setStates({...states, 
+      order: e.target.value, templates: sortByAlphabeth(states.templates, e.target.value)
+    });
+  }
+  const chooseDateSort = (e) => {
+    setStates({...states, 
+      date: e.target.value, templates: sortByDate(states.templates, e.target.value)
+    });
+  }
+  const searchTemplates = (e) => {
+    setStates({...states, query: e.target.value,
+      templates: search(states.templates, e.target.value)
+    });
+  }
+
   return (
     <div className="App">
 
       <div className="page-head">
-        <input type="search" placeholder="search template" className="myInput" />
+        <input 
+          type="search" placeholder="search template" className="myInput"
+          onInput={searchTemplates}
+        />
         <span>Sort by: </span>
         <div>
-          <select name="category" className="mySelects" onChange={(e) => setStates({...states, category: e.target.value})}>
+          <select name="category" className="mySelects" onChange={chooseCategory} value={states.category}>
             <option value="all">All</option>
             <option value="Education">Education</option>
             <option value="E-commerce">E-commerce</option>
@@ -41,7 +67,7 @@ const App = () => {
           <label style={{color:'#8F8B8B',fontSize:'13px',position:'relative',left:'13px',top:'-68px'}}>Category</label>
         </div>
         <div>
-          <select name="order" className="mySelects" onChange={(e) => setStates({...states, category: e.target.value})}>
+          <select name="order" className="mySelects" onChange={chooseOrderSort} value={states.order}>
             <option value="default">Default</option>
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
@@ -49,7 +75,7 @@ const App = () => {
           <label style={{color:'#8F8B8B',fontSize:'13px',position:'relative',left:'13px',top:'-68px'}}>Order</label>
         </div>
         <div>
-          <select name="date" className="mySelects" onChange={(e) => setStates({...states, category: e.target.value})}>
+          <select name="date" className="mySelects" onChange={chooseDateSort} value={states.date}>
             <option value="default">Default</option>
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
