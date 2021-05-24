@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Card = ({ title, desc, action }) => {
+const Card = ({ title, desc }) => {
 
     return(
         <div className="card">

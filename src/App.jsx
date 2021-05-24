@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Api, capitalize }  from './model/Models';
+import { Api }  from './model/Models';
 import { TemplatesLoader } from './components/TemplatesLoader';
 
 const App = () => {
@@ -17,6 +17,7 @@ const App = () => {
 
   useEffect(() => {
 
+    //load templates before first render
     Api.then(response => response.json())
     .then(json => {
       setStates({...states, templates: json, length: json.length });
@@ -28,13 +29,9 @@ const App = () => {
   const chooseCategory = (e) => setStates({
     ...states, category:  e.target.value, order: 'default', date: 'default', query: ''
   });
-  
   const chooseOrderSort = (e) => setStates({...states, order: e.target.value});
-  
   const chooseDateSort = (e) => setStates({...states, date: e.target.value });
-  
   const searchTemplates = (e) => setStates({...states, query: e.target.value });
-  
 
   return (
     <div className="App">
@@ -46,7 +43,7 @@ const App = () => {
         />
         <span>Sort by: </span>
         <div>
-          <select name="category" className="mySelects" onChange={chooseCategory} value={states.category}>
+          <select id="cat" name="category" className="mySelects" onChange={chooseCategory} value={states.category}>
             <option value="all">All</option>
             <option value="Education">Education</option>
             <option value="E-commerce">E-commerce</option>
@@ -55,7 +52,7 @@ const App = () => {
           <label style={{color:'#8F8B8B',fontSize:'13px',position:'relative',left:'13px',top:'-68px'}}>Category</label>
         </div>
         <div>
-          <select name="order" className="mySelects" onChange={chooseOrderSort} value={states.order}>
+          <select id="order" name="order" className="mySelects" onChange={chooseOrderSort} value={states.order}>
             <option value="default">Default</option>
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
@@ -63,7 +60,7 @@ const App = () => {
           <label style={{color:'#8F8B8B',fontSize:'13px',position:'relative',left:'13px',top:'-68px'}}>Order</label>
         </div>
         <div>
-          <select name="date" className="mySelects" onChange={chooseDateSort} value={states.date}>
+          <select id="date" name="date" className="mySelects" onChange={chooseDateSort} value={states.date}>
             <option value="default">Default</option>
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
@@ -74,21 +71,13 @@ const App = () => {
 
       <div className="useless-line">
         <p style={{background: '#FFF4EA',padding:'6px'}}>
+        <i id="caution" style={{marginRight:'2px'}} >  i </i> 
         Tada! Get started with a free template. Can’t find what you are looking for? Search from the 1000+ available templates
         </p>
       </div>
       
-      <div className="topbase">
-        <h4>{capitalize(states.category)} templates</h4>
-        <h4 style={{color: 'grey'}}>{states.templates.length} templates</h4>
-      </div>
-
-      <div className="page-body">
-        <div className="group">
-          <TemplatesLoader states={states} />
-        </div>
-      </div>
-
+      <TemplatesLoader states={states} />
+      
       <div className="page-footer">
         <button className="btn" onClick={prev}>Previous</button>
         <span><button>{states.iterator+1}</button> of {Math.ceil(states.length/states.limit)} </span>

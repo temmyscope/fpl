@@ -46,7 +46,7 @@ body {
   .card {
     background-color: white;
     width: 90%;
-    margin: 2px auto;
+    margin: 2% auto;
     text-align: left;
     height: 220px;
     font-size: 16px;
@@ -82,7 +82,7 @@ body {
   .card {
     background-color: white;
     width: 47%;
-    margin: 2px auto;
+    margin: 2% auto;
     text-align: left;
     height: 220px;
     font-size: 16px;
@@ -107,7 +107,7 @@ body {
     margin-bottom: 12px;
   }
   .mySelects {
-    width: 27%;
+    width: 100%;
     font-size: 16px;
     padding: 12px;
     border: 1px solid #ddd;
@@ -120,8 +120,8 @@ body {
 @media screen and (min-width: 900px) {  
   .card {
     background-color: white;
-    width: 31%;
-    margin: 4px auto;
+    width: 30%;
+    margin: 1.5% auto;
     text-align: left;
     height: 220px;
     font-size: 16px;
@@ -205,4 +205,28 @@ a {
   cursor: pointer;
   display: inline-block;
   color: black;
+}
+#caution {
+  color: #FC830A;
+  border: 1px solid #FC830A;
+  border-radius: 50%;
+  width: 100%;
+  text-align: center;
+  padding-left: 2px;
+}
+@keyframes example {
+  0%   {color: red;}
+  10%  {color: yellow;}
+  20%  {color: blue;}
+  30%   {color: red;}
+  40%  {color: yellow;}
+  50%  {color: blue;}
+  60% {color: green;}
+  100% {color: green;}
+}
+#placeholder {
+  width: 100px;
+  height: 100px;
+  animation-name: example;
+  animation-duration: 50s;
 }
