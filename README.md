@@ -21,3 +21,7 @@ Yarn is my preffered package installer
  - I'm using the screen-model-components folder structure (no screen folder in this case in order to maintain code simplicity)
 
  - No Redux 
+
+## On a Second Look
+
+- The simulateClick function in the "test" should have been called simulateSelect
